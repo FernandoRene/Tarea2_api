@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+group = 'com'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // restassured
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    implementation 'io.rest-assured:json-path:5.5.0'
+    implementation 'io.rest-assured:json-schema-validator:5.5.0'
+    implementation 'io.rest-assured:rest-assured-common:5.5.0'
+    testImplementation 'io.rest-assured:rest-assured-all:5.5.0'
+    // json object
+    implementation 'org.json:json:20240303'
+    // cucumber
+    implementation 'io.cucumber:cucumber-java:7.18.1'
+    testImplementation 'io.cucumber:cucumber-junit:7.18.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+// --plugin  configuracion del reporte
+// '--glue  donde estara tus step defintion?
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:target/cucumber-report.html',
+                    '--glue', 'runner',
+                    'src/test/resources']
+        }
+    }
+}

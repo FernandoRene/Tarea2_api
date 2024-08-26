@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "null"
+    },
+    "FullName": {
+      "type": "string"
+    },
+    "TimeZone": {
+      "type": "integer"
+    },
+    "IsProUser": {
+      "type": "boolean"
+    },
+    "DefaultProjectId": {
+      "type": "integer"
+    },
+    "AddItemMoreExpanded": {
+      "type": "boolean"
+    },
+    "EditDueDateMoreExpanded": {
+      "type": "boolean"
+    },
+    "ListSortType": {
+      "type": "integer"
+    },
+    "FirstDayOfWeek": {
+      "type": "integer"
+    },
+    "NewTaskDueDate": {
+      "type": "integer"
+    },
+    "TimeZoneId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Id",
+    "Email",
+    "Password",
+    "FullName",
+    "TimeZone",
+    "IsProUser",
+    "DefaultProjectId",
+    "AddItemMoreExpanded",
+    "EditDueDateMoreExpanded",
+    "ListSortType",
+    "FirstDayOfWeek",
+    "NewTaskDueDate",
+    "TimeZoneId"
+  ]
+}
