@@ -7,11 +7,13 @@ Feature: YAPE Business Remittance Payout – validate
     * def uuid             = Java.type('qa.tools.id.UuidUtil')
     * def apiName          = 'payout-validate'
 
-    # callonce → se ejecuta UNA SOLA VEZ por feature file, no por cada fila del Scenario Outline
+    # Nota: read() de un JSON plano NO usa callonce — callonce solo aplica a
+    # feature files o funciones JS invocables. Leer un JSON local es rápido,
+    # así que se relee en cada fila del Scenario Outline sin impacto real.
 
     # Rules (HP y UP en el mismo JSON, secciones 'funcional' / 'unhappy')
     * def rulesPath    = resolveJsonIntranet('remittance', 'payout', 'rules', 'validate')
-    * def rules        = callonce read(rulesPath)
+    * def rules        = read(rulesPath)
 
     # Auth: Basic + PublicToken + AppUserId (credenciales estáticas gestionadas por Seguridad BCP)
     # Si rotan las credenciales, actualizar únicamente qa.properties – sin tocar este feature
@@ -21,7 +23,7 @@ Feature: YAPE Business Remittance Payout – validate
 
     # Payload base del request (estructura real del endpoint, no la del doc)
     * def basicRequestPath = resolveJsonIntranet('remittance', 'payout', '', 'validateDataRequest')
-    * def basicRequest     = callonce read(basicRequestPath)
+    * def basicRequest     = read(basicRequestPath)
 
 
   # ──────────────────────────────────────────────────────────────────────────
