@@ -1,6 +1,6 @@
 {
   "funcional": {
-    "validate_hp_ria_online_usd_a_bob": {
+    "hp_ria_online_remesa_estandar": {
       "paymentInfo": {
         "beneficiary": {
           "fullName": "FERNANDO RENE LLUSCO BLANCO",
