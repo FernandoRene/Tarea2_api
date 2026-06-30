@@ -1,0 +1,50 @@
+{
+  "funcional": {
+    "validate_hp_ria_online_usd_a_bob": {
+      "paymentInfo": {
+        "beneficiary": {
+          "fullName": "FERNANDO RENE LLUSCO BLANCO",
+          "identifier": {
+            "value": null,
+            "type": null,
+            "countryCode": null
+          },
+          "account": {
+            "accountNumber": "70135940"
+          }
+        }
+      },
+      "additionalInfo": {
+        "remittance": "RIA",
+        "partner": "Ria",
+        "channelType": "ONLINE",
+        "originCountryCode": "US"
+      },
+      "sender": {
+        "identifier": {
+          "value": "48059133-1",
+          "type": "DNI",
+          "countryCode": "PE"
+        },
+        "type": "per",
+        "category": "user",
+        "fullName": "FRANCISCO LEONARDO CESPEDES MEJILLONES",
+        "addressLine1": "123 Fifth Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "12345",
+        "nationality": "US",
+        "dateOfBirth": "1990-04-30",
+        "gender": "male",
+        "bankAccount": "103992722-2"
+      },
+      "amount": {
+        "payment": {
+          "amount": 200.35,
+          "currency": "BOB"
+        }
+      }
+    }
+  },
+  "unhappy": {}
+}
